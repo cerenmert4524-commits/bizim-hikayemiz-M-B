@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bizim Hikayemiz ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:#050505;
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff174f;
+    font-size:25px;
+    animation:up linear infinite;
+    opacity:.8;
+}
+
+@keyframes up{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    15%{opacity:.9}
+    100%{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+.card{
+    position:relative;
+    z-index:1;
+    width:92%;
+    max-width:520px;
+    margin:30px auto;
+    padding:35px 24px;
+    text-align:center;
+    background:rgba(20,20,20,.9);
+    border:1px solid #555;
+    border-radius:30px;
+    box-shadow:0 0 35px rgba(255,0,65,.25);
+}
+
+.photo{
+    width:270px;
+    height:270px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #ff315c;
+    box-shadow:0 0 25px rgba(255,30,85,.65);
+}
+
+h1{
+    color:#ff315c;
+    font-size:45px;
+    line-height:1.05;
+    margin:28px 0 15px;
+}
+
+.subtitle{
+    font-size:20px;
+    color:#eee;
+    margin-bottom:35px;
+}
+
+button{
+    border:0;
+    border-radius:35px;
+    padding:17px 28px;
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    background:linear-gradient(90deg,#ff174f,#ff3565);
+    box-shadow:0 8px 25px rgba(255,23,79,.35);
+    cursor:pointer;
+}
+
+#story{
+    display:none;
+    margin-top:30px;
+}
+
+.chapter{
+    text-align:left;
+    padding:20px 4px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.chapter h2{
+    color:#ff5a7b;
+    font-size:27px;
+}
+
+.chapter p{
+    white-space:pre-line;
+    color:#f3f3f3;
+    font-size:17px;
+    line-height:1.75;
+}
+
+.memories{
+    display:none;
+    margin-top:30px;
+}
+
+.memories img{
+    width:100%;
+    border-radius:22px;
+    border:2px solid #ff315c;
+}
+
+.small{
+    margin-top:18px;
+    color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<main class="card">
+
+<img src="foto1.jpg" class="photo">
+
+<h1>Bizim<br>Hikayemiz ❤️</h1>
+
+<p class="subtitle">
+Bazı hikâyeler hiç bitmez...
+</p>
+
+<button id="readBtn">
+Hikâyemizi Oku ❤️
+</button>
+
+<section id="story">
+
+<div class="chapter">
+
+<h2>İlk tanışma 🌸</h2>
+
+<p>
+ilk gün gördük birbirimizi o sunucuda
+ya vurulmuştum sanki ben sana
+dünyalar benim oldu
+sevgili olduk sonra
+</p>
+
+</div>
+
+
+<div class="chapter">
+
+<h2>Mutlu günler 🩷</h2>
+
+<p>
+herşey çok güzel gidiyordu seninle
+ben çok mutluydum gülüştük..
+beraber hayaller kurduk
+saatlerce konuştuk
+</p>
+
+</div>
+
+
+<div class="chapter">
+
+<h2>Kavgalar 🥀</h2>
+
+<p>
+sonra tartışmalar başladı
+kırıldık..ayrıldık..sustuk
+belki yanlış insanlar girdi hayatımıza
+belki ikimizde hata yaptık
+</p>
+
+</div>
+
+
+<div class="chapter">
+
+<h2>YENİDEN ♾️</h2>
+
+<p>
+ben seni çok sevsemde
+böyle arkadaş kalmamız daha mantıklı
+ben sana hiç yanlış yapmadım
+ama yinede özür dilerim
+seni seviyorum canım
+arkadaşım..
+</p>
+
+</div>
+
+<button id="memoryBtn">
+Anılarımız ❤️
+</button>
+
+<div class="memories" id="memories">
+
+<img src="foto2.jpg">
+
+<p class="small">
+anılar ❤️
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script>
+
+const hearts=document.getElementById("hearts");
+
+for(let i=0;i<32;i++){
+
+const h=document.createElement("span");
+
+h.className="heart";
+
+h.textContent="❤";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.fontSize=(15+Math.random()*30)+"px";
+
+h.style.animationDuration=(5+Math.random()*8)+"s";
+
+h.style.animationDelay=(Math.random()*8)+"s";
+
+hearts.appendChild(h);
+
+}
+
+
+document.getElementById("readBtn").onclick=function(){
+
+document.getElementById("story").style.display="block";
+
+document.getElementById("readBtn").style.display="none";
+
+};
+
+
+document.getElementById("memoryBtn").onclick=function(){
+
+document.getElementById("memories").style.display="block";
+
+document.getElementById("memoryBtn").style.display="none";
+
+};
+
+</script>
+
+</body>
+</html>
